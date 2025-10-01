@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThreadLab | Elevated Apparel for Every Day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="container">
+        <div class="brand">
+          <span class="brand-mark">TL</span>
+          <div>
+            <h1>ThreadLab</h1>
+            <p>Clothing engineered for real life.</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="cart-toggle" aria-label="Toggle cart">
+            <span class="material-symbol">shopping_cart</span>
+            <span class="cart-count" id="cart-count">0</span>
+          </button>
+          <button class="icon-button" id="theme-toggle" aria-label="Toggle theme">
+            <span class="material-symbol">light_mode</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="eyebrow">Just dropped</p>
+            <h2>Feel-good fits engineered for movement.</h2>
+            <p>
+              Meet the Motion Collection: adaptive fabrics, breathable panels, and
+              colors inspired by city sunsets. Designed for commutes, coffees,
+              and celebrations alike.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary">Shop the Motion Collection</button>
+              <button class="btn ghost" id="open-deals">View active deals</button>
+            </div>
+            <ul class="hero-highlights">
+              <li>No-fade guarantee</li>
+              <li>Free tailoring on first order</li>
+              <li>Carbon-neutral shipping</li>
+            </ul>
+          </div>
+          <div class="hero-showcase" aria-hidden="true">
+            <div class="floating-card">
+              <span class="badge">New</span>
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=400&q=80" alt="Two people wearing modern clothing" />
+              <div class="floating-details">
+                <h3>Motion Jacket</h3>
+                <p>$148 · Storm Gray</p>
+              </div>
+            </div>
+            <div class="floating-card bottom">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="Close up of fabric texture" />
+              <div class="floating-details">
+                <h3>CloudWeave Tee</h3>
+                <p>$58 · Sunrise Coral</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="promo-banner" id="deal-banner" aria-live="polite"></section>
+
+      <section class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">This week's perks</p>
+            <h2>Deals & coupons engineered to stack</h2>
+          </div>
+          <div class="coupon-input">
+            <label for="coupon-code">Have a code?</label>
+            <div class="input-group">
+              <input
+                id="coupon-code"
+                type="text"
+                placeholder="Enter coupon"
+                autocomplete="off"
+              />
+              <button class="btn secondary" id="apply-coupon">Apply</button>
+            </div>
+            <p class="coupon-feedback" id="coupon-feedback" role="status"></p>
+          </div>
+        </div>
+        <div class="deal-grid" id="deal-grid"></div>
+      </section>
+
+      <section class="container" aria-labelledby="categories-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shop by vibe</p>
+            <h2 id="categories-heading">Collections for every mood</h2>
+          </div>
+          <div class="filter-group">
+            <label for="sort-select">Sort</label>
+            <select id="sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="new">New arrivals</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </div>
+        </div>
+        <div class="category-tabs" role="tablist" aria-label="Product categories">
+          <button role="tab" class="tab active" data-category="all">All</button>
+          <button role="tab" class="tab" data-category="men">Men</button>
+          <button role="tab" class="tab" data-category="women">Women</button>
+          <button role="tab" class="tab" data-category="studio">Studio</button>
+          <button role="tab" class="tab" data-category="lounge">Lounge</button>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="container loyalty">
+        <div class="loyalty-card">
+          <div>
+            <h2>ThreadLab Collective</h2>
+            <p>
+              Earn 3% back on every purchase, unlock exclusive colorways, and
+              get a free birthday gift.
+            </p>
+          </div>
+          <div>
+            <button class="btn primary">Join the Collective</button>
+            <p class="loyalty-footnote">Already a member? <a href="#">Sign in</a></p>
+          </div>
+        </div>
+        <div class="delivery-card">
+          <h3>Need it fast?</h3>
+          <p>Order by 2pm for same-day courier delivery in 15 major cities.</p>
+          <ul>
+            <li>Free shipping on orders over $150</li>
+            <li>30-day easy exchanges</li>
+            <li>Complimentary repair program</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cart-panel" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Your cart</h2>
+        <button class="icon-button" id="close-cart" aria-label="Close cart">
+          <span class="material-symbol">close</span>
+        </button>
+      </div>
+      <div class="cart-body" id="cart-items"></div>
+      <div class="cart-summary">
+        <div class="cart-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-line savings" id="cart-savings" hidden>
+          <span>Discounts</span>
+          <span id="cart-discount">-$0.00</span>
+        </div>
+        <div class="cart-line">
+          <span>Shipping</span>
+          <span id="cart-shipping">Calculated at checkout</span>
+        </div>
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button class="btn primary full">Proceed to checkout</button>
+        <p class="cart-footnote">Secure checkout · Apple Pay · Shop Pay</p>
+      </div>
+    </aside>
+
+    <div class="cart-overlay" id="cart-overlay" hidden></div>
+
+    <template id="cart-item-template">
+      <article class="cart-item">
+        <img alt="" class="cart-item-image" />
+        <div class="cart-item-details">
+          <div class="cart-item-header">
+            <h3 class="cart-item-name"></h3>
+            <button class="icon-button remove-item" aria-label="Remove item">
+              <span class="material-symbol">close</span>
+            </button>
+          </div>
+          <p class="cart-item-meta"></p>
+          <div class="cart-item-footer">
+            <div class="quantity-control" role="group" aria-label="Adjust quantity">
+              <button class="icon-button decrease" aria-label="Decrease quantity">
+                <span class="material-symbol">remove</span>
+              </button>
+              <span class="quantity" aria-live="polite"></span>
+              <button class="icon-button increase" aria-label="Increase quantity">
+                <span class="material-symbol">add</span>
+              </button>
+            </div>
+            <span class="cart-item-price"></span>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>ThreadLab</h3>
+          <p>Versatile essentials crafted with responsible materials.</p>
+          <p class="footer-copy">© <span id="current-year"></span> ThreadLab Inc.</p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping FAQs</a></li>
+            <li><a href="#">Fabric care</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Stay in the loop</h4>
+          <p>Sign up to get early access to drops & restocks.</p>
+          <div class="input-group">
+            <input type="email" placeholder="Email" aria-label="Email" />
+            <button class="btn secondary">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
